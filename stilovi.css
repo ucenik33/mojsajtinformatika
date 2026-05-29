@@ -1,0 +1,157 @@
+* {
+  box-sizing: border-box;
+}
+html{
+background-color:#ddf4cb
+}
+body{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width:90%;
+  padding:0;
+  margin:0;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 1100px;
+  
+}
+header{
+  height:200px;
+  background-image:url("slike/hederpozadina.jpg");
+  background-repeat: repeat-x repeat-y;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 900px;
+}
+header h1{
+  margin-top: 1px;
+  text-align: center;
+  margin-left:300px;
+  margin-right:350px; 
+  text-transform: uppercase;
+  color:#4b4b4b;
+  padding-top:40px;
+}
+
+h1{
+  margin-top:10px;
+  padding-top:15px;
+}
+
+nav{
+  background-color:#323232;
+  height:40px;
+  padding:0px;
+}
+nav ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  
+ }
+
+nav li{
+	overflow:hidden;
+  float:left;
+  margin:0px;
+  padding:10px;
+  text-transform:uppercase;
+  height:40px;
+}
+
+nav li a{
+  text-decoration:none;
+  color:#fff;
+  margin:0px;
+  
+}
+
+nav li:hover{
+  background-color: #a50303;
+}
+
+.aktivna{
+  background-color: #a50303;
+  color:#fff;
+}
+section{
+  margin:0;
+  padding:10px;
+  background-color: wheat;
+  margin-top:0px;
+  line-height: 1.5;
+}
+
+figure {
+  display:inline-block;
+  background-color: #fff
+}
+figcaption{
+  border-top:1px solid gray; 
+  height:1.8em;
+  padding: 5px;
+  background-color:gray;
+  color:white;
+}
+.okvir{
+  border:1px solid gray;
+  
+}
+.ucentru{
+  text-align: center; 
+  margin-left: auto;
+  margin-right: auto;
+}
+strong{
+  color: darkred;
+  font-weight: bold;
+  
+}
+
+footer{
+  width:100%;
+  padding:5px;
+   text-align:center;
+   background-color:#323232;
+   height:40px;
+}
+footer p{
+  float: left;
+  margin:0;
+  padding:2px;
+  color: #fff;
+  width:96%;
+}
+
+footer h4{
+  float: right;
+  margin:0;
+  padding:2px;
+  color: #fff;
+  
+}
+.hederslika2{
+  float: right;
+  margin: 0px;
+  padding: 0px;
+ }
+.hederslika1{
+  float: left;
+  margin: 0px;
+  padding: 0px;
+}
+
+.slika{
+  margin:10px;
+  padding: 10px;
+
+}
+ul img{
+  width:45px;
+}
+
+#vrh{
+  color:#fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
