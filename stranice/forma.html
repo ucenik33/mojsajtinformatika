@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../stiloviforma.css">
+    <link rel="stylesheet" href="../stilovi.css">
+<meta charset="UTF-8">
+<title>Forma za poruke</title>
+
+<script>
+function printError(elemId, hintMsg) {
+document.getElementById(elemId).innerHTML = hintMsg;
+}
+function proveraForme() {
+var ime = document.contactForm.ime.value;
+var email = document.contactForm.email.value;
+var mobilni = document.contactForm.mobilni.value;
+var zanimanje = document.contactForm.zanimanje.value;
+var pol = document.contactForm.pol.value;
+var poruka = document.contactForm.poruka.value;
+var izvor = [];
+var checkboxes = document.getElementsByName("izvor[]");
+for(var i=0; i < checkboxes.length; i++) {
+if(checkboxes[i].checked) {
+izvor.push(checkboxes[i].value);
+}
+}
+var imeErr = emailErr = mobilniErr = zanimanjeErr = polErr = true;
+if(ime == "") {
+printError("imeErr", "Унесите ваше име");
+} else  {
+printError("imeErr", "");
+imeErr = false;
+}
+
+if(email == "") {
+printError("emailErr", "Унесите имејл адресу име");
+} else {
+var regex = /^\S+@\S+\.\S+$/;
+if(regex.test(email) === false) {
+printError("emailErr", "Унесите исправну имејл адресу");
+} else{
+printError("emailErr", "");
+emailErr = false;
+}
+}
+if(mobilni == "") {
+printError("mobilniErr", "Унесите број мобилног телефона");
+} else {
+var regex = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{3,4})$/;
+if(regex.test(mobilni) === false) {
+printError("mobilniErr", "Унесите исправан број мобилног телефона");
+} else{
+printError("mobilniErr", "");
+mobilniErr = false;
+}
+}
+if(zanimanje == "Изаберите") {
+printError("zanimanjeErr", "Изаберите занимање");
+} else {
+printError("zanimanjeErr", "");
+zanimanjeErr = false;
+}
+if(pol == "") {
+printError("polErr", "Изаберите пол");
+} else {
+printError("polErr", "");
+polErr = false;
+}
+if((imeErr || emailErr || mobilniErr || zanimanjeErr || polErr) == true) {
+return false;
+} else {
+var dataPreview = "Унели сте следеће податке: \n" +
+"Ваше име: " + ime + "\n" +
+"Имејл адреса: " + email + "\n" +
+"Мобилни телефон: " + mobilni + "\n" +
+"Занимање: " + zanimanje + "\n" +
+"Пол: " + pol + "\n" + 
+"Порука: " + poruka + "\n" ;
+if(izvor.length) {
+dataPreview += "О нама сте чули преко: " + izvor.join(", ");
+}
+alert(dataPreview);
+}
+};
+</script>
+</head>
+<body>
+    <header>
+        <img src="../slike/Bačka_Palanka_grb.gif" width=200 alt="" class="hederslika1">
+       <img src="../slike/stari_grb.jpg" height=200 alt="" class="hederslika2">
+       <h1 style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-size: 3.5vw;">Пошаљите нам поруку</h1>
+         </header>
+         <nav>
+           <ul>
+             <li ><a href="../index.html"><img src="../slike/pocetak1.png" alt=""></a></li>
+             <li><a href="obackojpalanci.html">О Паланци</a></li>
+             <li><a href="stanovnistvo.html">Становништво </a></li>
+             <li><a href="obrazovanje.html">Образовање </a></li>
+             <li  class ="aktivna"><a href="forma.html">Контакт </a></li>
+             </ul>
+         </nav>
+      <section>
+    <form name="contactForm" onsubmit="return proveraForme()" action="potvrda.html" method="post" target="_blank">
+        
+        <div class="row">
+        <label>Име и презиме</label>
+        <input type="text" name="ime">
+        <div class="error" id="imeErr"></div>
+        </div>
+        <div class="row">
+        <label>Имејл адреса</label>
+        <input type="text" name="email">
+        <div class="error" id="emailErr"></div>
+        </div>
+        <div class="row">Мобилни телефон</label>
+        <input type="text" name="mobilni" maxlength="10">
+        <div class="error" id="mobilniErr"></div>
+        </div>
+        <div class="row">
+        <label>Занимање</label>
+        <select name="zanimanje">
+        <option>Изаберите</option>
+        <option>Ученик</option>
+        <option>Студент</option>
+        <option>Запослен</option>
+        <option>Пензионер</option>
+        </select>
+        <div class="error" id="zanimanjeErr"></div>
+        </div>
+        <div class="row">
+        <label>Пол</label>
+        <div class="form-inline">
+        <label><input type="radio" name="pol" value="Мушко"> Мушко</label>
+        <label><input type="radio" name="pol" value="Женско"> Женско</label>
+        </div>
+        <div class="error" id="polErr"></div>
+        </div>
+        <div class="row">
+        <label>Како сте чули за нас <i>(Необавезно)</i></label>
+        <div class="form-inline">
+        <label><input type="checkbox" name="izvor[]" value="Интернет"> Интернет</label>
+        <label><input type="checkbox" name="izvor[]" value="Пријатељи"> Пријатељи</label>
+        <label><input type="checkbox" name="izvor[]" value="Медији"> Медији&nbsp;&nbsp;&nbsp;</label>
+        <label><input type="checkbox" name="izvor[]" value="Друштвене мреже"> Друш. мреже</label>
+        </div>
+        <div class="row">
+            <label style="margin-top: 10px;">Упишите поруку:</label>
+            <textarea name="poruka" rows="4" cols="38"></textarea>
+        </div>
+        <div class="row">
+        <input type="submit" value="Пошаљи">
+        <input type="reset" value="Поништи">
+        </div>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; Гимназија "20. октобар", Бачка Паланка, 2024.</p>
+        <h4><a id="vrh" href="#top">Врх</a></h4>
+      </footer>
+</body>
+</html>
